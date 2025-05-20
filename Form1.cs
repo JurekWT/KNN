@@ -3,6 +3,8 @@ namespace KNN;
 public partial class Form1 : Form
 {
     private SampleSet sampleSet = new SampleSet();
+    private Classificator classificator = new Classificator();
+    private Classificator.Metric metric = Classificator.Metric.Manhattan;
     public Form1()
     {
         InitializeComponent();
@@ -22,5 +24,10 @@ public partial class Form1 : Form
         {
             labelSamplesLoaded.Text = "Nie wybrano pliku";
         }
+    }
+
+    private void buttonStart_Click(object sender, EventArgs e)
+    {
+        classificator.Classify(sampleSet.samples[0], sampleSet, 3, metric);
     }
 }

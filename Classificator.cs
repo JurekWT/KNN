@@ -21,27 +21,30 @@ public class Classificator
     public string Classify(RefSample sampleToClassify, SampleSet sampleSet, int k, Metric metric)
     {
         testSample = sampleToClassify;
-        Dictionary<double, string> distancesToSample = new Dictionary<double, string>();
+        var distancesToSample = new List<KeyValuePair<double, string>>();
+        
 
         for (int sampleIndex = 0; sampleIndex < sampleSet.samples.Count; sampleIndex++)
         {
             if (sampleToClassify == sampleSet.samples[sampleIndex]) continue;
             
             var distance = CalculateDistance(sampleSet.samples[sampleIndex], metric);
-            distancesToSample.Add(distance, sampleSet.samples[sampleIndex].classLabel);
+            distancesToSample.Add(new KeyValuePair<double, string>(distance, sampleSet.samples[sampleIndex].classLabel));
         }
         
-        distancesToSample = distancesToSample.OrderBy(x => x.Key).Take(k).ToDictionary(x => x.Key, x => x.Value);
-        var groupedClasses = distancesToSample.GroupBy(x => x.Value).OrderByDescending(x => x.Count()).ToList();
+        distancesToSample.Sort((x,y) => x.Key.CompareTo(y.Key));
+        var groupedSamples = distancesToSample.Take(k).GroupBy(x => x.Value);
+        var mostCommonClass = groupedSamples.OrderByDescending(x => x.Count()).ToList();
 
-        if (groupedClasses.Count > 1 && groupedClasses[0].Count() == groupedClasses[1].Count())
+        if (mostCommonClass.Count > 1 && mostCommonClass[0].Count() == mostCommonClass[1].Count())
         {
-            return "Nie można sklasyfikować";
+            return "Cant classify";
         }
         else
         {
-            return groupedClasses[0].Key;
+            return mostCommonClass[0].Key;
         }
+        
 
     }
 

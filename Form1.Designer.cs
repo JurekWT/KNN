@@ -29,21 +29,22 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        buttonLoadSamples = new Button();
-        label1 = new Label();
-        groupBoxLoadSamples = new GroupBox();
-        labelSamplesLoaded = new Label();
-        openFileDialog1 = new OpenFileDialog();
+        buttonLoadSamples = new System.Windows.Forms.Button();
+        label1 = new System.Windows.Forms.Label();
+        groupBoxLoadSamples = new System.Windows.Forms.GroupBox();
+        labelSamplesLoaded = new System.Windows.Forms.Label();
+        openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+        buttonStart = new System.Windows.Forms.Button();
         groupBoxLoadSamples.SuspendLayout();
         SuspendLayout();
         // 
         // buttonLoadSamples
         // 
-        buttonLoadSamples.Dock = DockStyle.Top;
-        buttonLoadSamples.Location = new Point(3, 23);
-        buttonLoadSamples.Margin = new Padding(10);
+        buttonLoadSamples.Dock = System.Windows.Forms.DockStyle.Top;
+        buttonLoadSamples.Location = new System.Drawing.Point(3, 23);
+        buttonLoadSamples.Margin = new System.Windows.Forms.Padding(10);
         buttonLoadSamples.Name = "buttonLoadSamples";
-        buttonLoadSamples.Size = new Size(230, 50);
+        buttonLoadSamples.Size = new System.Drawing.Size(230, 50);
         buttonLoadSamples.TabIndex = 0;
         buttonLoadSamples.Text = "Wczytaj";
         buttonLoadSamples.UseVisualStyleBackColor = true;
@@ -51,53 +52,65 @@ partial class Form1
         // 
         // label1
         // 
-        label1.Font = new Font("Segoe UI", 11F);
-        label1.Location = new Point(-11, 0);
+        label1.Font = new System.Drawing.Font("Segoe UI", 11F);
+        label1.Location = new System.Drawing.Point(-11, 0);
         label1.Name = "label1";
-        label1.Size = new Size(804, 54);
+        label1.Size = new System.Drawing.Size(804, 54);
         label1.TabIndex = 1;
         label1.Text = "Klasyfikator k-nn, walidacja 1 vs reszta";
-        label1.TextAlign = ContentAlignment.MiddleCenter;
+        label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // groupBoxLoadSamples
         // 
         groupBoxLoadSamples.Controls.Add(labelSamplesLoaded);
         groupBoxLoadSamples.Controls.Add(buttonLoadSamples);
-        groupBoxLoadSamples.Location = new Point(6, 57);
+        groupBoxLoadSamples.Location = new System.Drawing.Point(6, 57);
         groupBoxLoadSamples.Name = "groupBoxLoadSamples";
-        groupBoxLoadSamples.Size = new Size(236, 114);
+        groupBoxLoadSamples.Size = new System.Drawing.Size(236, 114);
         groupBoxLoadSamples.TabIndex = 2;
         groupBoxLoadSamples.TabStop = false;
         groupBoxLoadSamples.Text = "Baza próbek wzorcowych";
         // 
         // labelSamplesLoaded
         // 
-        labelSamplesLoaded.Dock = DockStyle.Bottom;
-        labelSamplesLoaded.Location = new Point(3, 80);
+        labelSamplesLoaded.Dock = System.Windows.Forms.DockStyle.Bottom;
+        labelSamplesLoaded.Location = new System.Drawing.Point(3, 80);
         labelSamplesLoaded.Name = "labelSamplesLoaded";
-        labelSamplesLoaded.Size = new Size(230, 31);
+        labelSamplesLoaded.Size = new System.Drawing.Size(230, 31);
         labelSamplesLoaded.TabIndex = 1;
-        labelSamplesLoaded.TextAlign = ContentAlignment.MiddleCenter;
+        labelSamplesLoaded.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // openFileDialog1
         // 
         openFileDialog1.FileName = "openFileDialog1";
         // 
+        // buttonStart
+        // 
+        buttonStart.Location = new System.Drawing.Point(298, 84);
+        buttonStart.Name = "buttonStart";
+        buttonStart.Size = new System.Drawing.Size(193, 53);
+        buttonStart.TabIndex = 3;
+        buttonStart.Text = "Start";
+        buttonStart.UseVisualStyleBackColor = true;
+        buttonStart.Click += buttonStart_Click;
+        // 
         // Form1
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(782, 553);
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        ClientSize = new System.Drawing.Size(782, 553);
+        Controls.Add(buttonStart);
         Controls.Add(groupBoxLoadSamples);
         Controls.Add(label1);
-        FormBorderStyle = FormBorderStyle.Fixed3D;
+        FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
         MaximizeBox = false;
-        Name = "Form1";
-        StartPosition = FormStartPosition.CenterScreen;
+        StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         Text = "K-NN";
         groupBoxLoadSamples.ResumeLayout(false);
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Button buttonStart;
 
     private System.Windows.Forms.OpenFileDialog openFileDialog1;
 

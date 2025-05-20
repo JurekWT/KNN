@@ -28,6 +28,14 @@ public partial class Form1 : Form
 
     private void buttonStart_Click(object sender, EventArgs e)
     {
-        classificator.Classify(sampleSet.samples[0], sampleSet, 3, metric);
+        var results = new List<int>();
+        for (int i = 0; i < sampleSet.samples.Count; i++)
+        {
+            var result = classificator.Classify(sampleSet.samples[i], sampleSet, 5, metric);
+            results.Add(result == sampleSet.samples[i].classLabel ? 1 : 0);
+        }
+        double accuracy = (results.Count(x => x == 1) / (double)results.Count) * 100;
+        labelSamplesLoaded.Text = $"{accuracy:F2}%";
+
     }
 }

@@ -19,6 +19,8 @@ public partial class Form1 : Form
             sampleSet.NormalizeSamples();
             labelSamplesLoaded.Text = $"Wczytano próbki";
             openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            buttonLoadSamples.Enabled = false;
+            buttonStart.Enabled = true;
         }
         else
         {

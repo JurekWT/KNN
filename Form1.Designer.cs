@@ -35,7 +35,19 @@ partial class Form1
         labelSamplesLoaded = new System.Windows.Forms.Label();
         openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
         buttonStart = new System.Windows.Forms.Button();
+        groupBoxMetrics = new System.Windows.Forms.GroupBox();
+        radioButtonManhattan = new System.Windows.Forms.RadioButton();
+        radioButtonEuclid = new System.Windows.Forms.RadioButton();
+        radioButtonCzebyszew = new System.Windows.Forms.RadioButton();
+        radioButtonLog = new System.Windows.Forms.RadioButton();
+        numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+        groupBox1 = new System.Windows.Forms.GroupBox();
+        label2 = new System.Windows.Forms.Label();
+        textBoxOutput = new System.Windows.Forms.TextBox();
         groupBoxLoadSamples.SuspendLayout();
+        groupBoxMetrics.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // buttonLoadSamples
@@ -55,7 +67,7 @@ partial class Form1
         label1.Font = new System.Drawing.Font("Segoe UI", 11F);
         label1.Location = new System.Drawing.Point(-11, 0);
         label1.Name = "label1";
-        label1.Size = new System.Drawing.Size(804, 54);
+        label1.Size = new System.Drawing.Size(597, 54);
         label1.TabIndex = 1;
         label1.Text = "Klasyfikator k-nn, walidacja 1 vs reszta";
         label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -86,19 +98,114 @@ partial class Form1
         // 
         // buttonStart
         // 
-        buttonStart.Location = new System.Drawing.Point(298, 84);
+        buttonStart.Location = new System.Drawing.Point(9, 181);
         buttonStart.Name = "buttonStart";
-        buttonStart.Size = new System.Drawing.Size(193, 53);
+        buttonStart.Size = new System.Drawing.Size(230, 53);
         buttonStart.TabIndex = 3;
         buttonStart.Text = "Start";
         buttonStart.UseVisualStyleBackColor = true;
         buttonStart.Click += buttonStart_Click;
         // 
+        // groupBoxMetrics
+        // 
+        groupBoxMetrics.Controls.Add(radioButtonLog);
+        groupBoxMetrics.Controls.Add(radioButtonCzebyszew);
+        groupBoxMetrics.Controls.Add(radioButtonEuclid);
+        groupBoxMetrics.Controls.Add(radioButtonManhattan);
+        groupBoxMetrics.Location = new System.Drawing.Point(252, 57);
+        groupBoxMetrics.Name = "groupBoxMetrics";
+        groupBoxMetrics.Size = new System.Drawing.Size(149, 177);
+        groupBoxMetrics.TabIndex = 4;
+        groupBoxMetrics.TabStop = false;
+        groupBoxMetrics.Text = "Metryki";
+        // 
+        // radioButtonManhattan
+        // 
+        radioButtonManhattan.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right));
+        radioButtonManhattan.Checked = true;
+        radioButtonManhattan.Location = new System.Drawing.Point(7, 21);
+        radioButtonManhattan.Name = "radioButtonManhattan";
+        radioButtonManhattan.Size = new System.Drawing.Size(120, 30);
+        radioButtonManhattan.TabIndex = 0;
+        radioButtonManhattan.TabStop = true;
+        radioButtonManhattan.Text = "Manhattan";
+        radioButtonManhattan.UseVisualStyleBackColor = true;
+        // 
+        // radioButtonEuclid
+        // 
+        radioButtonEuclid.Location = new System.Drawing.Point(7, 57);
+        radioButtonEuclid.Name = "radioButtonEuclid";
+        radioButtonEuclid.Size = new System.Drawing.Size(120, 30);
+        radioButtonEuclid.TabIndex = 1;
+        radioButtonEuclid.Text = "Euklidesowa";
+        radioButtonEuclid.UseVisualStyleBackColor = true;
+        // 
+        // radioButtonCzebyszew
+        // 
+        radioButtonCzebyszew.Location = new System.Drawing.Point(7, 93);
+        radioButtonCzebyszew.Name = "radioButtonCzebyszew";
+        radioButtonCzebyszew.Size = new System.Drawing.Size(120, 30);
+        radioButtonCzebyszew.TabIndex = 2;
+        radioButtonCzebyszew.Text = "Czebyszewa";
+        radioButtonCzebyszew.UseVisualStyleBackColor = true;
+        // 
+        // radioButtonLog
+        // 
+        radioButtonLog.Location = new System.Drawing.Point(7, 129);
+        radioButtonLog.Name = "radioButtonLog";
+        radioButtonLog.Size = new System.Drawing.Size(127, 30);
+        radioButtonLog.TabIndex = 3;
+        radioButtonLog.Text = "Logarytmowa";
+        radioButtonLog.UseVisualStyleBackColor = true;
+        // 
+        // numericUpDown1
+        // 
+        numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right));
+        numericUpDown1.Location = new System.Drawing.Point(29, 54);
+        numericUpDown1.Maximum = new decimal(new int[] { 149, 0, 0, 0 });
+        numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+        numericUpDown1.Name = "numericUpDown1";
+        numericUpDown1.Size = new System.Drawing.Size(99, 27);
+        numericUpDown1.TabIndex = 5;
+        numericUpDown1.Value = new decimal(new int[] { 3, 0, 0, 0 });
+        // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(label2);
+        groupBox1.Controls.Add(numericUpDown1);
+        groupBox1.Location = new System.Drawing.Point(410, 57);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new System.Drawing.Size(158, 177);
+        groupBox1.TabIndex = 6;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "Inne";
+        // 
+        // label2
+        // 
+        label2.Location = new System.Drawing.Point(29, 26);
+        label2.Name = "label2";
+        label2.Size = new System.Drawing.Size(101, 25);
+        label2.TabIndex = 6;
+        label2.Text = "Parametr K:";
+        // 
+        // textBoxOutput
+        // 
+        textBoxOutput.Enabled = false;
+        textBoxOutput.Location = new System.Drawing.Point(9, 244);
+        textBoxOutput.Multiline = true;
+        textBoxOutput.Name = "textBoxOutput";
+        textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+        textBoxOutput.Size = new System.Drawing.Size(559, 302);
+        textBoxOutput.TabIndex = 7;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(782, 553);
+        ClientSize = new System.Drawing.Size(575, 553);
+        Controls.Add(textBoxOutput);
+        Controls.Add(groupBox1);
+        Controls.Add(groupBoxMetrics);
         Controls.Add(buttonStart);
         Controls.Add(groupBoxLoadSamples);
         Controls.Add(label1);
@@ -107,8 +214,26 @@ partial class Form1
         StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         Text = "K-NN";
         groupBoxLoadSamples.ResumeLayout(false);
+        groupBoxMetrics.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+        groupBox1.ResumeLayout(false);
         ResumeLayout(false);
+        PerformLayout();
     }
+
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.TextBox textBoxOutput;
+
+    private System.Windows.Forms.NumericUpDown numericUpDown1;
+    private System.Windows.Forms.GroupBox groupBox1;
+
+    private System.Windows.Forms.RadioButton radioButtonEuclid;
+    private System.Windows.Forms.RadioButton radioButtonCzebyszew;
+
+    private System.Windows.Forms.RadioButton radioButtonLog;
+
+    private System.Windows.Forms.GroupBox groupBoxMetrics;
+    private System.Windows.Forms.RadioButton radioButtonManhattan;
 
     private System.Windows.Forms.Button buttonStart;
 

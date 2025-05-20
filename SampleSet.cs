@@ -4,7 +4,7 @@ namespace KNN;
 
 public class SampleSet
 {
-    List<RefSample> samples;
+    public List<RefSample> samples;
     private double maxValA;
     private double minValA;
     private double maxValB;

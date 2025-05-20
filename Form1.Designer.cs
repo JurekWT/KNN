@@ -36,10 +36,10 @@ partial class Form1
         openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
         buttonStart = new System.Windows.Forms.Button();
         groupBoxMetrics = new System.Windows.Forms.GroupBox();
-        radioButtonManhattan = new System.Windows.Forms.RadioButton();
-        radioButtonEuclid = new System.Windows.Forms.RadioButton();
-        radioButtonCzebyszew = new System.Windows.Forms.RadioButton();
         radioButtonLog = new System.Windows.Forms.RadioButton();
+        radioButtonCzebyszew = new System.Windows.Forms.RadioButton();
+        radioButtonEuclid = new System.Windows.Forms.RadioButton();
+        radioButtonManhattan = new System.Windows.Forms.RadioButton();
         numericUpDown1 = new System.Windows.Forms.NumericUpDown();
         groupBox1 = new System.Windows.Forms.GroupBox();
         label2 = new System.Windows.Forms.Label();
@@ -98,11 +98,12 @@ partial class Form1
         // 
         // buttonStart
         // 
+        buttonStart.Enabled = false;
         buttonStart.Location = new System.Drawing.Point(9, 181);
         buttonStart.Name = "buttonStart";
         buttonStart.Size = new System.Drawing.Size(230, 53);
         buttonStart.TabIndex = 3;
-        buttonStart.Text = "Start";
+        buttonStart.Text = "Waliduj";
         buttonStart.UseVisualStyleBackColor = true;
         buttonStart.Click += buttonStart_Click;
         // 
@@ -119,6 +120,36 @@ partial class Form1
         groupBoxMetrics.TabStop = false;
         groupBoxMetrics.Text = "Metryki";
         // 
+        // radioButtonLog
+        // 
+        radioButtonLog.Location = new System.Drawing.Point(7, 129);
+        radioButtonLog.Name = "radioButtonLog";
+        radioButtonLog.Size = new System.Drawing.Size(127, 30);
+        radioButtonLog.TabIndex = 3;
+        radioButtonLog.Text = "Logarytmowa";
+        radioButtonLog.UseVisualStyleBackColor = true;
+        radioButtonLog.CheckedChanged += radioButtonLog_CheckedChanged;
+        // 
+        // radioButtonCzebyszew
+        // 
+        radioButtonCzebyszew.Location = new System.Drawing.Point(7, 93);
+        radioButtonCzebyszew.Name = "radioButtonCzebyszew";
+        radioButtonCzebyszew.Size = new System.Drawing.Size(120, 30);
+        radioButtonCzebyszew.TabIndex = 2;
+        radioButtonCzebyszew.Text = "Czebyszewa";
+        radioButtonCzebyszew.UseVisualStyleBackColor = true;
+        radioButtonCzebyszew.CheckedChanged += radioButtonCzebyszew_CheckedChanged;
+        // 
+        // radioButtonEuclid
+        // 
+        radioButtonEuclid.Location = new System.Drawing.Point(7, 57);
+        radioButtonEuclid.Name = "radioButtonEuclid";
+        radioButtonEuclid.Size = new System.Drawing.Size(120, 30);
+        radioButtonEuclid.TabIndex = 1;
+        radioButtonEuclid.Text = "Euklidesowa";
+        radioButtonEuclid.UseVisualStyleBackColor = true;
+        radioButtonEuclid.CheckedChanged += radioButtonEuclid_CheckedChanged;
+        // 
         // radioButtonManhattan
         // 
         radioButtonManhattan.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right));
@@ -130,33 +161,7 @@ partial class Form1
         radioButtonManhattan.TabStop = true;
         radioButtonManhattan.Text = "Manhattan";
         radioButtonManhattan.UseVisualStyleBackColor = true;
-        // 
-        // radioButtonEuclid
-        // 
-        radioButtonEuclid.Location = new System.Drawing.Point(7, 57);
-        radioButtonEuclid.Name = "radioButtonEuclid";
-        radioButtonEuclid.Size = new System.Drawing.Size(120, 30);
-        radioButtonEuclid.TabIndex = 1;
-        radioButtonEuclid.Text = "Euklidesowa";
-        radioButtonEuclid.UseVisualStyleBackColor = true;
-        // 
-        // radioButtonCzebyszew
-        // 
-        radioButtonCzebyszew.Location = new System.Drawing.Point(7, 93);
-        radioButtonCzebyszew.Name = "radioButtonCzebyszew";
-        radioButtonCzebyszew.Size = new System.Drawing.Size(120, 30);
-        radioButtonCzebyszew.TabIndex = 2;
-        radioButtonCzebyszew.Text = "Czebyszewa";
-        radioButtonCzebyszew.UseVisualStyleBackColor = true;
-        // 
-        // radioButtonLog
-        // 
-        radioButtonLog.Location = new System.Drawing.Point(7, 129);
-        radioButtonLog.Name = "radioButtonLog";
-        radioButtonLog.Size = new System.Drawing.Size(127, 30);
-        radioButtonLog.TabIndex = 3;
-        radioButtonLog.Text = "Logarytmowa";
-        radioButtonLog.UseVisualStyleBackColor = true;
+        radioButtonManhattan.CheckedChanged += radioButtonManhattan_CheckedChanged;
         // 
         // numericUpDown1
         // 
@@ -190,10 +195,10 @@ partial class Form1
         // 
         // textBoxOutput
         // 
-        textBoxOutput.Enabled = false;
         textBoxOutput.Location = new System.Drawing.Point(9, 244);
         textBoxOutput.Multiline = true;
         textBoxOutput.Name = "textBoxOutput";
+        textBoxOutput.ReadOnly = true;
         textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
         textBoxOutput.Size = new System.Drawing.Size(559, 302);
         textBoxOutput.TabIndex = 7;

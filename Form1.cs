@@ -36,7 +36,10 @@ public partial class Form1 : Form
         for (int i = 0; i < sampleSet.samples.Count; i++)
         {
             var result = classificator.Classify(sampleSet.samples[i], sampleSet, k, metric);
-            results.Add(result == sampleSet.samples[i].classLabel ? 1 : 0);
+            if (result != "Cant classify")
+            {
+                results.Add(result == sampleSet.samples[i].classLabel ? 1 : 0);
+            }
         }
         double accuracy = (results.Count(x => x == 1) / (double)results.Count) * 100;
         textBoxOutput.Text +=

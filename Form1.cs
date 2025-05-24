@@ -43,7 +43,7 @@ public partial class Form1 : Form
         }
         double accuracy = (results.Count(x => x == 1) / (double)results.Count) * 100;
         textBoxOutput.Text +=
-            $"Metryka: {metric.ToString()}, k-nn: {k}, Poprawnych: {results.Count(x => x == 1)}, Dokładność: {accuracy:F2}%" +
+            $"Metryka: {metric.ToString()}, k-nn: {k}, Skla.: {results.Count}, Popr.: {results.Count(x => x == 1)}, Dokł.: {accuracy:F2}%" +
             Environment.NewLine;
 
     }

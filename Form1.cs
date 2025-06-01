@@ -4,6 +4,7 @@ public partial class Form1 : Form
 {
     private SampleSet sampleSet = new SampleSet();
     private Classificator classificator = new Classificator();
+    private Classificator.TypeOfClassification typeOfClassification = Classificator.TypeOfClassification.KTotal;
     private Classificator.Metric metric = Classificator.Metric.Manhattan;
     private int k;
     public Form1()
@@ -35,7 +36,7 @@ public partial class Form1 : Form
         var results = new List<int>();
         for (int i = 0; i < sampleSet.samples.Count; i++)
         {
-            var result = classificator.Classify(sampleSet.samples[i], sampleSet, k, metric);
+            var result = classificator.Classify(sampleSet.samples[i], sampleSet, k, metric, typeOfClassification);
             if (result != "Cant classify")
             {
                 results.Add(result == sampleSet.samples[i].classLabel ? 1 : 0);
@@ -43,7 +44,7 @@ public partial class Form1 : Form
         }
         double accuracy = (results.Count(x => x == 1) / (double)results.Count) * 100;
         textBoxOutput.Text +=
-            $"Metryka: {metric.ToString()}, k-nn: {k}, Skla.: {results.Count}, Popr.: {results.Count(x => x == 1)}, Dokł.: {accuracy:F2}%" +
+            $"Metryka: {metric.ToString()},{typeOfClassification.ToString()} k-nn: {k}, Skla.: {results.Count}, Popr.: {results.Count(x => x == 1)}, Dokł.: {accuracy:F2}%" +
             Environment.NewLine;
 
     }
@@ -66,5 +67,16 @@ public partial class Form1 : Form
     private void radioButtonLog_CheckedChanged(object sender, EventArgs e)
     {
         metric = Classificator.Metric.Logarithmic;
+    }
+
+    private void radioKEach_CheckedChanged(object sender, EventArgs e)
+    {
+        typeOfClassification = Classificator.TypeOfClassification.KEachClass;
+    }
+    
+
+    private void radioKTotal_CheckedChanged_1(object sender, EventArgs e)
+    {
+        typeOfClassification = Classificator.TypeOfClassification.KTotal;
     }
 }

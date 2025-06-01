@@ -42,6 +42,8 @@ partial class Form1
         radioButtonManhattan = new System.Windows.Forms.RadioButton();
         numericUpDown1 = new System.Windows.Forms.NumericUpDown();
         groupBox1 = new System.Windows.Forms.GroupBox();
+        radioKTotal = new System.Windows.Forms.RadioButton();
+        radioKEach = new System.Windows.Forms.RadioButton();
         label2 = new System.Windows.Forms.Label();
         textBoxOutput = new System.Windows.Forms.TextBox();
         groupBoxLoadSamples.SuspendLayout();
@@ -176,6 +178,8 @@ partial class Form1
         // 
         // groupBox1
         // 
+        groupBox1.Controls.Add(radioKTotal);
+        groupBox1.Controls.Add(radioKEach);
         groupBox1.Controls.Add(label2);
         groupBox1.Controls.Add(numericUpDown1);
         groupBox1.Location = new System.Drawing.Point(410, 57);
@@ -184,6 +188,28 @@ partial class Form1
         groupBox1.TabIndex = 6;
         groupBox1.TabStop = false;
         groupBox1.Text = "Inne";
+        // 
+        // radioKTotal
+        // 
+        radioKTotal.Checked = true;
+        radioKTotal.Location = new System.Drawing.Point(24, 93);
+        radioKTotal.Name = "radioKTotal";
+        radioKTotal.Size = new System.Drawing.Size(104, 24);
+        radioKTotal.TabIndex = 8;
+        radioKTotal.TabStop = true;
+        radioKTotal.Text = "K ogółem";
+        radioKTotal.UseVisualStyleBackColor = true;
+        radioKTotal.CheckedChanged += radioKTotal_CheckedChanged_1;
+        // 
+        // radioKEach
+        // 
+        radioKEach.Location = new System.Drawing.Point(24, 123);
+        radioKEach.Name = "radioKEach";
+        radioKEach.Size = new System.Drawing.Size(134, 24);
+        radioKEach.TabIndex = 7;
+        radioKEach.Text = "K każdej klasy";
+        radioKEach.UseVisualStyleBackColor = true;
+        radioKEach.CheckedChanged += radioKEach_CheckedChanged;
         // 
         // label2
         // 
@@ -225,6 +251,10 @@ partial class Form1
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.RadioButton radioKTotal;
+
+    private System.Windows.Forms.RadioButton radioKEach;
 
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.TextBox textBoxOutput;
